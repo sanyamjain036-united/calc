@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculatorServlet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">calculator Maven Webapp</a> &gt; <a href="index.source.html" class="el_package">com.example</a> &gt; <span class="el_source">CalculatorServlet.java</span></div><h1>CalculatorServlet.java</h1><pre class="source lang-java linenums">package com.example;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+<span class="nc" id="L12">public class CalculatorServlet extends HttpServlet {</span>
+	double result;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<span class="nc" id="L16">		doPost(request, response);</span>
+<span class="nc" id="L17">	}</span>
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<span class="nc" id="L20">		PrintWriter out = response.getWriter();</span>
+<span class="nc" id="L21">		String n1 = request.getParameter(&quot;num1&quot;);</span>
+<span class="nc" id="L22">		String n2 = request.getParameter(&quot;num2&quot;);</span>
+<span class="nc" id="L23">		String opt = request.getParameter(&quot;operations&quot;);</span>
+
+<span class="nc bnc" id="L25" title="All 2 branches missed.">		if (opt.equals(&quot;add&quot;)) {</span>
+<span class="nc" id="L26">			result = new Calculator().doAdd(Integer.parseInt(n1), Integer.parseInt(n2));</span>
+<span class="nc" id="L27">			String htmlRespone = &quot;&lt;html&gt; &lt;head&gt;&lt;style&gt;.container {\n&quot; + &quot;	max-width: 600px;\n&quot;</span>
+					+ &quot;	margin: 20px auto;\n&quot; + &quot;	background-color: #fff;\n&quot; + &quot;	padding: 20px;\n&quot;
+					+ &quot;	border-radius: 5px;\n&quot; + &quot;	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n&quot; + &quot;	\n&quot; + &quot;}\n&quot; + &quot;\n&quot;
+					+ &quot;.result {\n&quot; + &quot;	color: #000000;\n&quot; + &quot;}&lt;/style&gt;&lt;/head&gt;&quot;;
+<span class="nc" id="L31">			htmlRespone += &quot;&lt;div class=\&quot;container\&quot;&gt;&lt;h2 class=\&quot;result\&quot;&gt;Result: &quot; + result + &quot;&lt;/h2&gt;&lt;/div&gt;&lt;br/&gt;&quot;;</span>
+<span class="nc" id="L32">			htmlRespone += &quot;&lt;/html&gt;&quot;;</span>
+<span class="nc" id="L33">			out.println(htmlRespone);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">		} else if (opt.equals(&quot;sub&quot;)) {</span>
+<span class="nc" id="L35">			result = new Calculator().doSub(Integer.parseInt(n1), Integer.parseInt(n2));</span>
+<span class="nc" id="L36">			String htmlRespone = &quot;&lt;html&gt; &lt;head&gt;&lt;style&gt;.container {\n&quot; + &quot;	max-width: 600px;\n&quot;</span>
+					+ &quot;	margin: 20px auto;\n&quot; + &quot;	background-color: #fff;\n&quot; + &quot;	padding: 20px;\n&quot;
+					+ &quot;	border-radius: 5px;\n&quot; + &quot;	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n&quot; + &quot;	\n&quot; + &quot;}\n&quot; + &quot;\n&quot;
+					+ &quot;.result {\n&quot; + &quot;	color: #000000;\n&quot; + &quot;}&lt;/style&gt;&lt;/head&gt;&quot;;
+<span class="nc" id="L40">			htmlRespone += &quot;&lt;div class=\&quot;container\&quot;&gt;&lt;h2 class=\&quot;result\&quot;&gt;Result: &quot; + result + &quot;&lt;/h2&gt;&lt;/div&gt;&lt;br/&gt;&quot;;</span>
+<span class="nc" id="L41">			htmlRespone += &quot;&lt;/html&gt;&quot;;</span>
+<span class="nc" id="L42">			out.println(htmlRespone);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">		} else if (opt.equals(&quot;mul&quot;)) {</span>
+<span class="nc" id="L44">			result = new Calculator().doMul(Integer.parseInt(n1), Integer.parseInt(n2));</span>
+<span class="nc" id="L45">			String htmlRespone = &quot;&lt;html&gt; &lt;head&gt;&lt;style&gt;.container {\n&quot; + &quot;	max-width: 600px;\n&quot;</span>
+					+ &quot;	margin: 20px auto;\n&quot; + &quot;	background-color: #fff;\n&quot; + &quot;	padding: 20px;\n&quot;
+					+ &quot;	border-radius: 5px;\n&quot; + &quot;	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n&quot; + &quot;	\n&quot; + &quot;}\n&quot; + &quot;\n&quot;
+					+ &quot;.result {\n&quot; + &quot;	color: #000000;\n&quot; + &quot;}&lt;/style&gt;&lt;/head&gt;&quot;;
+<span class="nc" id="L49">			htmlRespone += &quot;&lt;div class=\&quot;container\&quot;&gt;&lt;h2 class=\&quot;result\&quot;&gt;Result: &quot; + result + &quot;&lt;/h2&gt;&lt;/div&gt;&lt;br/&gt;&quot;;</span>
+<span class="nc" id="L50">			htmlRespone += &quot;&lt;/html&gt;&quot;;</span>
+<span class="nc" id="L51">			out.println(htmlRespone);</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">		} else if (opt.equals(&quot;div&quot;)) {</span>
+<span class="nc" id="L53">			result = new Calculator().doDiv(Integer.parseInt(n1), Integer.parseInt(n2));</span>
+<span class="nc" id="L54">			String htmlRespone = &quot;&lt;html&gt; &lt;head&gt;&lt;style&gt;.container {\n&quot; + &quot;	max-width: 600px;\n&quot;</span>
+					+ &quot;	margin: 20px auto;\n&quot; + &quot;	background-color: #fff;\n&quot; + &quot;	padding: 20px;\n&quot;
+					+ &quot;	border-radius: 5px;\n&quot; + &quot;	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n&quot; + &quot;	\n&quot; + &quot;}\n&quot; + &quot;\n&quot;
+					+ &quot;.result {\n&quot; + &quot;	color: #000000;\n&quot; + &quot;}&lt;/style&gt;&lt;/head&gt;&quot;;
+<span class="nc" id="L58">			htmlRespone += &quot;&lt;div class=\&quot;container\&quot;&gt;&lt;h2 class=\&quot;result\&quot;&gt;Result: &quot; + result + &quot;&lt;/h2&gt;&lt;/div&gt;&lt;br/&gt;&quot;;</span>
+<span class="nc" id="L59">			htmlRespone += &quot;&lt;/html&gt;&quot;;</span>
+<span class="nc" id="L60">			out.println(htmlRespone);</span>
+<span class="nc" id="L61">		}else {</span>
+<span class="nc" id="L62">			String htmlRespone = &quot;&lt;html&gt; &lt;head&gt;&lt;style&gt;.container {\n&quot; + &quot;	max-width: 600px;\n&quot;</span>
+					+ &quot;	margin: 20px auto;\n&quot; + &quot;	background-color: #fff;\n&quot; + &quot;	padding: 20px;\n&quot;
+					+ &quot;	border-radius: 5px;\n&quot; + &quot;	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n&quot; + &quot;	\n&quot; + &quot;}\n&quot; + &quot;\n&quot;
+					+ &quot;.result {\n&quot; + &quot;	color: #000000;\n&quot; + &quot;}&lt;/style&gt;&lt;/head&gt;&quot;;
+<span class="nc" id="L66">			htmlRespone += &quot;&lt;div class=\&quot;container\&quot;&gt;&lt;h2 &gt;Select the valid option&lt;/h2&gt;&lt;/div&gt;&lt;br/&gt;&quot;;</span>
+<span class="nc" id="L67">			htmlRespone += &quot;&lt;/html&gt;&quot;;</span>
+<span class="nc" id="L68">			out.println(htmlRespone);</span>
+		}
+<span class="nc" id="L70">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
