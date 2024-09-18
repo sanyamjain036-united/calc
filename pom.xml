@@ -36,7 +36,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.language>java</sonar.language>
 		<sonar.host.url>http://localhost:9123</sonar.host.url>
-		<sonar.projectKey>CI_1</sonar.projectKey>
+		<sonar.projectKey>CI_2</sonar.projectKey>
 		<sonar.login>admin</sonar.login>
 		<sonar.password>chota123</sonar.password>
 
